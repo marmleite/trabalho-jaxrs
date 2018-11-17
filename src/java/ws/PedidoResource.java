@@ -50,25 +50,26 @@ public class PedidoResource {
     }
     
     @GET
-    @Path("/id")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response get(@PathParam("id") String id) {
+    public Response getPessoas() {
         List<Pedido> pedidos;
+        pedidos = pedidoController.listAll();
+        return Response
+            .ok()
+            .entity(new GenericEntity<List<Pedido>>(pedidos){})
+            .build();
+    }
+    
+    @GET
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getPessoa(@PathParam("id") String id) {
         Pedido pedido;
-        if(id == null || "".equals(id)){
-            pedidos = pedidoController.listAll();
-            return Response
-                .ok()
-                .entity(new GenericEntity<List<Pedido>>(pedidos){})
-                .build();
-        }else{
-            pedido = pedidoController.findById(Integer.parseInt(id));
-            return Response
-                .ok()
-                .entity(pedido)
-                .build();
-        }    
-        
+        pedido = pedidoController.findById(Integer.parseInt(id));
+        return Response
+            .ok()
+            .entity(pedido)
+            .build();
     }
 
     @PUT
