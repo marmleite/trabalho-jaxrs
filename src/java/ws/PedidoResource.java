@@ -31,10 +31,10 @@ import model.Pedido;
 public class PedidoResource {
 
     @Inject
-    service.PedidoService pedidoController;
+    service.PedidoService pedidoService;
     
     PedidoResource(){
-        this.pedidoController = new service.PedidoService();
+        this.pedidoService = new service.PedidoService();
     }
     
     @Context
@@ -44,7 +44,7 @@ public class PedidoResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Pedido post(Pedido pedido){
-        pedidoController.salvar(pedido);
+        pedidoService.salvar(pedido);
         
         return pedido;
     }
@@ -53,7 +53,7 @@ public class PedidoResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getPessoas() {
         List<Pedido> pedidos;
-        pedidos = pedidoController.listAll();
+        pedidos = pedidoService.listAll();
         return Response
             .ok()
             .entity(new GenericEntity<List<Pedido>>(pedidos){})
@@ -65,7 +65,7 @@ public class PedidoResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getPessoa(@PathParam("id") String id) {
         Pedido pedido;
-        pedido = pedidoController.findById(Integer.parseInt(id));
+        pedido = pedidoService.findById(Integer.parseInt(id));
         return Response
             .ok()
             .entity(pedido)
