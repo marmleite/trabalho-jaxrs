@@ -2,7 +2,7 @@ package service;
 
 import java.util.List;
 
-public interface ServiceInteface<T> {
+public interface ServiceInterface<T> {
     
     	public void salvar(T obj);
 	public T update(T obj);

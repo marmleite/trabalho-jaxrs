@@ -4,7 +4,7 @@ import dao.PedidoDAO;
 import java.util.List;
 import model.Pedido;
 
-public class PedidoService implements ServiceInteface<Pedido> {
+public class PedidoService implements ServiceInterface<Pedido> {
 
     private PedidoDAO pedidoDAO;
 

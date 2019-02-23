@@ -4,14 +4,14 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.Resource;
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
 import javax.persistence.Query;
 import javax.transaction.UserTransaction;
 
-@ManagedBean(name = "genericDao")
+@Named("genericDao")
 public class GenericDAO<T> implements DAO<T>, Serializable {
 	private static final long serialVersionUID = 1L;
 

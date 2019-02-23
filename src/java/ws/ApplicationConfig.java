@@ -8,10 +8,6 @@ package ws;
 import java.util.Set;
 import javax.ws.rs.core.Application;
 
-/**
- *
- * @author marcelo
- */
 @javax.ws.rs.ApplicationPath("webresources")
 public class ApplicationConfig extends Application {
 

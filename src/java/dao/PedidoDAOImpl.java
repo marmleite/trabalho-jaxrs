@@ -1,6 +1,5 @@
 package dao;
 
-import dao.GenericDAO;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -12,6 +11,7 @@ public class PedidoDAOImpl extends GenericDAO<Pedido> implements PedidoDAO {
         super(Pedido.class);
     }
     
+    @Override
     public List<Pedido> findByIdUsuario(int id)
     {
         EntityManager em = emf.createEntityManager();

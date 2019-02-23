@@ -21,10 +21,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-/**
- *
- * @author max
- */
 @Entity
 @Table(name = "pedido")
 public class Pedido implements Serializable{
